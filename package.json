@@ -5,8 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "serve": "node ./src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/server.js"
   },
   "keywords": [
     "API",
@@ -18,7 +18,10 @@
   "author": "Fabricio Guzmán Vite",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "nodemon": "^3.0.1"
+    "mysql2": "^3.6.3",
+    "nodemon": "^3.0.1",
+    "sequelize": "^6.34.0"
   }
 }

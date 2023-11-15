@@ -1,3 +1,6 @@
+import Player from "../model/player.js";
+import dbConnection from "../config/db.js";
+
 const  createPlayer = (rq, rs) =>{
     console.log("Se ha solicitado la creacion de un nuevo jugador");
     rs.status(200);
@@ -5,6 +8,7 @@ const  createPlayer = (rq, rs) =>{
 }
 
 const  findPlayerbyID = (rq, rs) =>{
+    
     const playerID = rq.params.playerID
     console.log(`Se ha solicitado la busqueda de un jugador: ${playerID}`);
     rs.status(200);
@@ -43,5 +47,5 @@ export {
     findPlayerbyEmail, 
     updatePlayer, 
     deletePlayer, 
-    changePlayerPortrait
+    changePlayerPortrait,
 }
