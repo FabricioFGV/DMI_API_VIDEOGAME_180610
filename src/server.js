@@ -2,11 +2,20 @@ import express from "express";
 import playerRoutes from "./routes/playerRoutes.js"
 import dbConnection from "./config/db.js";
 import Player from "./model/player.js";
+import bodyParser from "body-parser";
 
 const api = new express()
 const port = 18061
 
+
 api.use("/player", playerRoutes)
+api.use(bodyParser.urlencoded({ extended: false }))
+api.use(bodyParser.json())
+api.use(function (rq, rs) {
+    rs.setHeader('Content-Type', 'text/plain')
+    rs.write('you posted:\n')
+    rs.end(JSON.stringify(rq.body, null, 2))
+  })
 
 try{
     console.log("STATUS -> Intentando conectarse a la base de datos.");
